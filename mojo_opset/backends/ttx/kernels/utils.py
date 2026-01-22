@@ -173,10 +173,7 @@ def tensor_device_guard_for_triton_kernel(path, name, device="npu"):
             # NOTE(liuyuan): for autotuners.
             while not isinstance(obj, JITFunction):
                 obj = obj.fn
-            try:
-                obj.add_pre_run_hook(device_guard)
-            except:
-                breakpoint()
+            obj.add_pre_run_hook(device_guard)
 
 
 contiguous = input_guard
