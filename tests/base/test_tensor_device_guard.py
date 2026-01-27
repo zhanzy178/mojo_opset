@@ -21,7 +21,7 @@ def test_tensor_device_guard():
 
     with pytest.raises(TypeError, match="Found cpu tensor.*triton kernel."):
         causal_conv1d_fwd(
-            *[torch.empty(*[8]*3)]
+            *[torch.empty(*[256]*3)]
             * 4
         )
 
